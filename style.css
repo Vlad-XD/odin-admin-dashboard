@@ -1,0 +1,45 @@
+/* ---- RESETS ---- */
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+/* ---- RESETS ---- */
+
+:root {
+  /* custom properties */
+  --sidebar-bg-color: #1992D4;
+  --main-content-bg-color: #E2E8F0;
+  --header-bg-color: white;
+
+}
+
+body {
+  display: grid;
+  grid-template-columns: 6fr 23fr;
+  grid-template-columns: 3fr 17fr;
+}
+
+.sidebar {
+  background-color: var(--sidebar-bg-color);
+  color: white;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.header {
+  background-color: var(--header-bg-color);
+  color: black;
+  grid-row: 1 / 2;
+}
+
+.main-content {
+  background-color: var(--main-content-bg-color);
+  color: black;
+  grid-row: 2/ 3;
+}
