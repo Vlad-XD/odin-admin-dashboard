@@ -27,12 +27,16 @@ a {
 
 :root {
   /* custom properties */
-  --sidebar-bg-color: #1992d4;
-  --main-content-bg-color: #e2e8f0;
+
+  --header-text-color: black;
   --header-bg-color: white;
   --sidebar-text-color: white;
+  --sidebar-bg-color: #1992d4;
+  --main-content-bg-color: #e2e8f0;
   --main-content-text-color: black;
-  --header-text-color: black;
+  --main-content-sub-text-color: #636363;
+  /* Accent color should match profile icon BG */
+  --main-content-project-accent-color: #43b06d;
 }
 
 html {
@@ -49,6 +53,7 @@ body {
   grid-template-columns: 6fr 23fr;
   grid-template-rows: 3fr 17fr;
   font-family: Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--main-content-bg-color);
 }
 
 .sidebar {
@@ -214,9 +219,151 @@ body {
   background-color: var(--main-content-bg-color);
   color: var(--main-content-text-color);
   grid-row: 2/ 3;
+  display: grid;
+  grid-template-columns: 16fr 6fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 2em 2em 4em 1.25em;
+  height: 80%
+}
+
+.main-content .project-grid {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+.main-content .announcement-grid {
+  grid-row: 1/2;
+}
+
+.main-content .trending-grid {
+  grid-row: 2/3;
+  align-self: end;
+}
+
+/* Adjusting boldness of some of our headings */
+.main-content h3,
+.main-content h4,
+.main-content h5 {
+  font-weight: 500;
+}
+
+/* Chaging font color of "sub" text, description text inside grids */
+.main-content .project-card p,
+.main-content .announcement-card p,
+.main-content .trending-card p.trending-project {
+  color: var(--main-content-sub-text-color);
+}
+
+.main-content .project-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75em;
+  margin-top: 0.75em;
+  margin-right: 1.5em;
+   margin-bottom: 2em;
+}
+
+.main-content .project-container .project-card {
+  background-color: var(--header-bg-color);
+  border-left: 0.4em solid var(--main-content-project-accent-color);
+  border-radius: 10px;
+  padding: 2em 1.5em 2em 1em;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.main-content .project-card .user-project {
+  height: 4em;
+}
+
+.main-content .project-card .card-icons {
+  align-self: end;
+  justify-self: end;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5em;
+}
+
+.main-content .announcement-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 33.3% 33.3% 33.3%;
+  background-color: var(--header-bg-color);
+  margin-top: 0.75em;
+  margin-bottom: 2em;
+  padding: 1em 1.5em;
+  border-radius: 10px;
+}
+
+.main-content .announcement-card {
+  padding: 1em 0;
+}
+
+.main-content .announcement-card#announcement-one,
+.main-content .announcement-card#announcement-two {
+  border-bottom: 0.15em solid var(--main-content-bg-color);
+}
+
+.main-content .trending-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  background-color: var(--header-bg-color);
+  margin-top: 0.75em;
+  margin-bottom: 2em;
+  padding: 1.5em 1.5em;
+  border-radius: 10px;
+  gap: 1.75em;
+}
+
+/* Changing font size of text in main content */
+.main-content .project-card p {
+  font-size: 14px;
+}
+
+.main-content .announcement-card p {
+  font-size: 11px;
+}
+
+.main-content .trending-card p {
+  font-size: 13px;
 }
 
 /* icons should match color of text in corresponding section */
 .main-content svg {
   fill: var(--main-content-text-color);
+}
+
+.main-content .project-card svg {
+  height: 1.4em;
+  --main-content-card-svg-color: #333333;
+  width: auto;
+}
+
+/* While these svg buttons won't be implemented for this example,
+   the pseudo-class of hover has been style to indicate they are
+   inteded to be interactive */
+.main-content .project-card svg:hover {
+  cursor: pointer;
+}
+
+.main-content .trending-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.main-content .trending-card img.user-icon {
+  height: 2.5em;
+  width: auto;
+  margin: 0 1em;
+}
+
+/* Add shadows to grids for aesthetics */
+.main-content .project-card,
+.main-content .announcement-container,
+.main-content .trending-container {
+  box-shadow: 0 0.5em 0.5em rgb(0 0 0 / 10%);
 }
